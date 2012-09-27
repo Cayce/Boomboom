@@ -10,17 +10,24 @@ https://github.com/downloads/Cayce/Boomboom/databases.zip
 3. Сreate 2 databases, in one import the boomboom database file, in second log
 
 4. Go to file config.php, and change those constants to fit your database:
-    define('DBMS_NAME','mysql');          // Database management system name
-    define('DB_HOST'  ,'localhost');      // If the server is on the same ip as mysql(or other dbms) the host is localhost
-    define('DB_PORT'  ,'3306');           // 3306 is default port for mysql
-    define('DB_USER'  ,'root');           // Name of the user with access to Boomboom and log databases
-    define('DB_PASS'  ,$passwords[0]);    // Password of the user 
-    define('DB_DATABASENAME','Boomboom'); // Name of the main database
-    define('DB_DATABASENAME_LOG','log');  // Name of database for log errors
+
+    >define('DBMS_NAME','mysql');          // Database management system name
+
+    >define('DB_HOST'  ,'localhost');      // If the server is on the same ip as mysql(or other dbms) the host is localhost
+
+    >define('DB_PORT'  ,'3306');           // 3306 is default port for mysql
+
+    >define('DB_USER'  ,'root');           // Name of the user with access to Boomboom and log databases
+
+    >define('DB_PASS'  ,$passwords[0]);    // Password of the user
+ 
+    >define('DB_DATABASENAME','Boomboom'); // Name of the main database
+
+    >define('DB_DATABASENAME_LOG','log');  // Name of database for log errors
 
 Note that there are two of each constants, one for case when website starts from your local server, and the other in all other cases
 
-5. Enjoy ! :)
+Enjoy ! :)
 
 Admin
 =====
