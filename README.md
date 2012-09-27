@@ -25,9 +25,7 @@ https://github.com/downloads/Cayce/Boomboom/databases.zip
 
     >define('DB_DATABASENAME_LOG','log');  // Name of database for log errors
 
-Note that there are two of each constants, one for case when website starts from your local server, and the other in all other cases
-
-Enjoy ! :)
+5. Go to .htaccess in main folder and admin, and change Boomboom adn Boomboom/admin for directories that you use
 
 Admin
 =====
