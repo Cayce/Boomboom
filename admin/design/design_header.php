@@ -9,14 +9,14 @@
 
 
     <!-- Le styles -->
-    <link href="design/Bootstrap/docs/assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="design/static/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
     </style>
 
-    <link href="design/Bootstrap/docs/assets/css/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="design/static/bootstrapcss/bootstrap-responsive.css" rel="stylesheet" />
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
