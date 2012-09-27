@@ -14,7 +14,7 @@
  *
  */
 
-require 'config.php';
+require '../config.php';
 require 'engine/classes/class_log.php';
 require 'engine/functions.php';
 require 'engine/classes/class_db.php';
