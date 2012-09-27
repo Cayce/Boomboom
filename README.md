@@ -7,7 +7,7 @@ https://github.com/Cayce/Boomboom/zipball/master
 2. Download the database structure and data from here:
 https://github.com/downloads/Cayce/Boomboom/databases.zip
 
-3. Сreate 2 databases, in one import the boomboom database file, in second log
+3. Сreate 2 databases, in one import the boomboom database file, in second log database file
 
 4. Go to file config.php, and change those constants to fit your database:
 
@@ -32,5 +32,7 @@ Enjoy ! :)
 Admin
 =====
 Access to your admin in websitename/admin
+
 user: admin
+
 pass: 123
