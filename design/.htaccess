@@ -1,0 +1,4 @@
+RewriteEngine on
+Options -Indexes
+
+RewriteRule captcha\.png captcha.php [NC,L]
