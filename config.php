@@ -20,7 +20,7 @@ define('PR_MODE',0);
 define('MOD_CATEGORIES_ON',0);
 
     // Protecting sensitive information, from you, reader
-$passwords    = file('.passwords');
+$passwords    = @file('.passwords');
 $passwords[0] = isset($passwords[0])?trim($passwords[0]):''; 
 $passwords[1] = isset($passwords[1])?trim($passwords[1]):''; 
 
