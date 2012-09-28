@@ -63,7 +63,7 @@ if(!isset($_SESSION['categories_admin']))
 
     // Creates session show(what to show - hidden jobs, not hidden jobs or both) if doesnt exist
 if(!isset($_SESSION['show']))
-    $_SESSION['show'] = 2;
+    $_SESSION['show'] = 0;
 
     // Those functions will make an array with all the job types categories and websites
 $jobs->get_categories();
