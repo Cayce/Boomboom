@@ -10,7 +10,7 @@
 <html lang="he">
   <head>
     <meta charset="utf-8" />
-    <title>Boomboom - מודעות לפרילנסרים</title>
+    <title>מודעות לפרילנסרים</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="אספנו את כל המודעות לפרילנסרים למקום אחד . You're welcome" />
     <meta name="author" content="Kirill Chudinov" />
