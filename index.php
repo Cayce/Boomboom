@@ -47,4 +47,4 @@ if($count > 0 && ($require_page==='index' || $require_page==='upload' || $requir
 
     // Else sending user to 404 page, assuming he required a not existing page
 else
-    header('location: ./?404');
+    header('location: /?404');
