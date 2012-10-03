@@ -54,7 +54,7 @@ for($i=$skip;$i<$jobs->jobs_count+$skip;$i++)
     if(isset($jobs->jobs[$i]['text_min']))
     {      
     ?>
-    <div class="tab-pane active" align="right" id="<?php echo $i*3+1; ?>">
+    <div class="tab-pane active" <?php echo $jobs->jobs[$i]['language']; ?> id="<?php echo $i*3+1; ?>">
     <p>
         <?php
             if(MOD_CATEGORIES_ON) echo'<b>קטגוריות: </b>',$jobs->jobs[$i]['categories'],$jobs->jobs[$i]['budget'],'<br /><br />';
@@ -66,7 +66,7 @@ for($i=$skip;$i<$jobs->jobs_count+$skip;$i++)
     <?php
     }
     ?>
-    <div class="tab-pane<?php if(!isset($jobs->jobs[$i]['text_min'])) echo ' active' ?>" align="right" id="<?php echo $i*3+2; ?>">
+    <div class="tab-pane<?php if(!isset($jobs->jobs[$i]['text_min'])) echo ' active';  ?>" <?php echo $jobs->jobs[$i]['language']; ?>  id="<?php echo $i*3+2; ?>">
     <p>
         <?php if(MOD_CATEGORIES_ON) echo'<b>קטגוריות: </b>',$jobs->jobs[$i]['categories'],$jobs->jobs[$i]['budget'],'<br /><br />';
         

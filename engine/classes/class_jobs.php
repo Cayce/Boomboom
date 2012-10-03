@@ -143,11 +143,11 @@ class jobs
                 $jobs[$i][$key] = $value;
             
                 // Delete all the tags in text, except <br> and <u>
-            $jobs[$i]['text'] = strip_tags($jobs[$i]['text'],'<br><u>');
+            $jobs[$i]['text'] = strip_tags($jobs[$i]['text'],'<br><p><u><b>');
             
                 // Creating minimized text
             if(mb_strlen($jobs[$i]['text'],'utf-8')>520)
-                $jobs[$i]['text_min'] = strip_tags(mb_substr($jobs[$i]['text'],0,500,'utf-8'),'<br><u>').'...';
+                $jobs[$i]['text_min'] = strip_tags(mb_substr($jobs[$i]['text'],0,500,'utf-8'),'<br><p><u><b>').'...';
             
                 // Getting the types
             $query4 = db::query("SELECT `name` FROM `job_types` WHERE `id_job_type` IN(SELECT `id_job_type` FROM `jobs_job_types` WHERE `id_job`=".$r['id_job'].")");
@@ -177,6 +177,12 @@ class jobs
             
                 // Fixing phone number
             $jobs[$i]['contact_phone'] = $jobs[$i]['contact_phone']!=0?$jobs[$i]['contact_phone']:'';
+            
+                // By language setting align and direction of the text (0-engish;1-hebrew)
+            if($jobs[$i]['language']==0)
+                $jobs[$i]['language'] = 'align="left" dir="ltr"';
+            else
+                $jobs[$i]['language'] = 'align="right" dir="rtl"';
             
                 // Geting date
             $jobs[$i]['date'] = redate_short($jobs[$i]['date']);
