@@ -32,10 +32,46 @@ var count_jobs = <?php echo $jobs->jobs_count; ?>
     <div class="span3">
     <form method="POST" action=".">
     <div class="sidebar">
-            
-        <div class="well">
-        <ul class="nav nav-list" dir="ltr">
+        
             <?php
+                    // ### LIST OF JOB TYPES ###
+                echo '<div class="well"><ul class="nav nav-list">';
+                
+                for($i=0;$i<$jobs->list_of_job_types_count;$i++)
+                {
+                    if($jobs->list_of_job_types[$i]['checked']==1)
+                        $checked = ' checked="checked"';
+                    else
+                        $checked = '';
+
+                    echo '<li><a><label class="checkbox"><input'.$checked.' type="checkbox" name="job_types['
+                          .$jobs->list_of_job_types[$i]['id_job_type'].'][]" value="1"> <span class="label label-info">'
+                          .$jobs->list_of_job_types[$i]['name'].'</span></label></a></li>';
+                }
+
+                echo '</ul></div>';
+                
+            
+                    // ### LIST OF CATEGORIES ###
+               if(MOD_CATEGORIES_ON)
+               {
+                   echo '<div class="well"><ul class="nav nav-list">';
+                   
+                   for($i=0;$i<$jobs->list_of_categories_count;$i++)
+                   {
+                       if($jobs->list_of_categories[$i]['checked']==1)
+                           $checked = ' checked="checked"';
+                       else
+                           $checked = '';
+
+                       echo '<li><a><label class="checkbox"><input'.$checked.' type="checkbox" name="categories['.$jobs->list_of_categories[$i]['id_category'].'][]" value="1"> <span style="color: #008080;">'.$jobs->list_of_categories[$i]['name'].'</span></label></a></li>';
+                   }
+                   
+                   echo '</ul></div>';
+               }
+                
+                   // ### LIST OF WEB SITES ###
+               echo '<div class="well"><ul class="nav nav-list" dir="ltr">';
                
                for($i=0;$i<$jobs->list_of_websites_count;$i++)
                {
@@ -72,45 +108,8 @@ var count_jobs = <?php echo $jobs->jobs_count; ?>
                 if($jobs->list_of_websites['first_hiden_website']!=-1)
                     echo '</div>';
                
-                echo '</ul></div><div class="well"><ul class="nav nav-list">';
-                
-                for($i=0;$i<$jobs->list_of_job_types_count;$i++)
-                {
-                    if($jobs->list_of_job_types[$i]['checked']==1)
-                        $checked = ' checked="checked"';
-                    else
-                        $checked = '';
-
-                    echo '<li><a><label class="checkbox"><input'.$checked.' type="checkbox" name="job_types['
-                          .$jobs->list_of_job_types[$i]['id_job_type'].'][]" value="1"> <span class="label label-info">'
-                          .$jobs->list_of_job_types[$i]['name'].'</span></label></a></li>';
-                }
-
                 echo '</ul></div>';
                 ?>
-                
-                
-               
-                
-                <?php
-            
-               if(MOD_CATEGORIES_ON)
-               {
-                   echo '<div class="well"><ul class="nav nav-list">';
-                   
-                   for($i=0;$i<$jobs->list_of_categories_count;$i++)
-                   {
-                       if($jobs->list_of_categories[$i]['checked']==1)
-                           $checked = ' checked="checked"';
-                       else
-                           $checked = '';
-
-                       echo '<li><a><label class="checkbox"><input'.$checked.' type="checkbox" name="categories['.$jobs->list_of_categories[$i]['id_category'].'][]" value="1"> <span style="color: #008080;">'.$jobs->list_of_categories[$i]['name'].'</span></label></a></li>';
-                   }
-                   
-                   echo '</ul></div>';
-               }
-            ?>
 
     <div class="well" align="center">
         <button class="btn btn-primary" name="update_checkboxes" type="submit">שמור שינויים</button>
