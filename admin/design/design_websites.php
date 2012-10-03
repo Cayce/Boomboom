@@ -14,8 +14,8 @@ require 'design_menu_left.php';
 <center>
 
 <?php
-if(in_array(1,$websites->errors)) echo '<p class="text-error">Image must be in ico format</p><br />'; 
-if(in_array(2,$websites->errors)) echo '<p class="text-error">You can\'t delete website that have jobs, that just stupid</p><br />'; 
+if(in_array(1,$websites->errors)) echo '<div class="alert alert-error">Image must be in ico format</div><br />'; 
+if(in_array(2,$websites->errors)) echo '<div class="alert alert-error">You can\'t delete website that have jobs, that just stupid</div><br />'; 
 ?>
     
 <form action="Websites" method="POST" ENCTYPE="multipart/form-data">
