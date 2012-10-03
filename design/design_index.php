@@ -157,7 +157,7 @@ var count_jobs = <?php echo $jobs->jobs_count; ?>
     ?>
         
     <div class="alert alert-info">
-    <p style="margin-bottom: 0;">אספתי את כל המודעות לפרילנסרים ומפתחי WEB למקום אחד . You're welcome</p>
+    <p style="margin-bottom: 0;">כל המודעות לפרילנסרים ובוני אתרים מכל האתרים בארץ, במקום אחד.</p>
     </div>
 
    <?php

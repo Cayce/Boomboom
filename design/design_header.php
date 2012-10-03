@@ -10,9 +10,9 @@
 <html lang="he">
   <head>
     <meta charset="utf-8" />
-    <title>מודעות לפרילנסרים</title>
+    <title>מודעות לפרילנסרים ובוני אתרים</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="אספנו את כל המודעות לפרילנסרים למקום אחד . You're welcome" />
+    <meta name="description" content="כל המודעות לפרילנסרים ובוני אתרים מכל האתרים בארץ, במקום אחד." />
     <meta name="author" content="Kirill Chudinov" />
 
 
