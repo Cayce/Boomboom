@@ -34,7 +34,7 @@ for($i=$skip;$i<$jobs->jobs_count+$skip;$i++)
                   .$jobs->jobs[$i]['types'].e($jobs->jobs[$i]['title']).'<div style="float: left"><h5>'.$jobs->jobs[$i]['date']
                   .'</h5></div></h4>'; ?>
     <br />
-    <table><tr><td valign="top" nowrap>
+    <table width="100%"><tr><td valign="top" width="10%" nowrap>
     <ul class="nav nav-pills nav-stacked">
         <?php
             if(isset($jobs->jobs[$i]['text_min']))
@@ -87,8 +87,8 @@ for($i=$skip;$i<$jobs->jobs_count+$skip;$i++)
               echo !empty($jobs->jobs[$i]['contact_phone'])?'<tr><td align="left"><p><u>מספר פלאפון</u>: </p></td><td><p>'.e($jobs->jobs[$i]['contact_phone']).'</p></td></tr>':'';
               echo !empty($jobs->jobs[$i]['contact_fax'])?'<tr><td align="left"><p><u>מספר פקס</u>: </p></td><td><p>'.e($jobs->jobs[$i]['contact_fax']).'</p></td></tr>':'';
               echo '<tr><td><br /></td></tr>';
-              echo !empty($jobs->jobs[$i]['source_url'])?'<tr><td align="right" colspan="2"><p><a href="'.e($jobs->jobs[$i]['source_url']).'" target="_blank">מקום בו פורסמה ההודעה</a></p></td></tr>':'';
-              echo !empty($jobs->jobs[$i]['url_to_contact'])?'<tr><td align="right" colspan="2"><p><a href="'.e($jobs->jobs[$i]['url_to_contact']).'" target="_blank">צור קשר דרך האתר בו פורסמה ההודעה</a></p></td></tr>':'';
+              echo !empty($jobs->jobs[$i]['source_url'])?'<tr><td align="right" colspan="2"><p><a href="'.e($jobs->jobs[$i]['source_url']).'" target="_blank">המקום בו פורסמה המודעה</a></p></td></tr>':'';
+              echo !empty($jobs->jobs[$i]['url_to_contact'])?'<tr><td align="right" colspan="2"><p><a href="'.e($jobs->jobs[$i]['url_to_contact']).'" target="_blank">צור קשר דרך האתר בו פורסמה המודעה</a></p></td></tr>':'';
        ?>
         </table>
     </div>
