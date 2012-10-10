@@ -40,7 +40,7 @@
     <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
         <div class="container">
-        <a class="brand" href=".">Boomboom</a> <p class="pull-left">RC</p>
+        <a class="brand" href=".">Boomboom</a> <p class="pull-left">1.0</p>
 
         <div class="nav-collapse">
             <ul class="nav pull-right">

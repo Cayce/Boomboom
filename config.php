@@ -10,7 +10,7 @@ define('PR_DOMAIN','Boomboom.co.il');
      * 0 - test mode (will print errors and save in database)
      * 1 - live mode (only save errors in database)
      */
-define('PR_MODE',0);
+define('PR_MODE',1);
 
     /*
      * Meanwhile turning off search by categories,
