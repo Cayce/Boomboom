@@ -13,7 +13,6 @@
  * And this script will require 'engine/engine_upload.php'
  *
  */
-
     // First of all, checking that script run in our universe.
 if(2+2!==4)
     die('Configurations of your universe doesn\'t support this script :(<br> Please contact your universe administrator(aka God).');

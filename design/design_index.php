@@ -114,24 +114,6 @@ var count_jobs = <?php echo $jobs->jobs_count; ?>
     <div class="well" align="center">
         <button class="btn btn-primary" name="update_checkboxes" type="submit">שמור שינויים</button>
     </div>
-            
-         <style type="text/css">
-            .at_a11y{position:relative!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;}
-        </style>
-        
-        <!-- AddThis Button BEGIN -->
-        <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-        <a class="addthis_button_facebook"></a> 
-        <a class="addthis_button_linkedin"></a>  
-        <a class="addthis_button_twitter"></a>
-        <a class="addthis_button_preferred_1"></a>
-        <a class="addthis_button_compact"></a>
-        </div>
-        <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-504706517ac3ff89"></script>
-        <!-- AddThis Button END -->
-        
-
-            <br />
         <div align="left"><a href="https://github.com/Cayce/Boomboom" target="_blank"><img src="design/static/images/github.png" /></a></div>
             
     </div>

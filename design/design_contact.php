@@ -60,10 +60,9 @@ require 'design_header.php';
         </table>
         </fieldset>
         </form>
-
         <legend>או צור איתי קשר בדרך אחרת</legend>
         
-        דואר אלקטרוני - Cayce252@gmail.com
+        דואר אלקטרוני - Cayce245@gmail.com
         <br>
 ג'אבר - Cayce@jabber.org
 

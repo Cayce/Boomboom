@@ -8,7 +8,7 @@ class contact
 {
     
         // For who the function send_email() will send an email
-    private $RECIPIENT_EMAIL = 'cayce252@gmail.com';
+    private $RECIPIENT_EMAIL = 'cayce245@gmail.com';
     
     public $author_email = '';
     public $title = '';

@@ -21,7 +21,6 @@ if(isset($_POST['save_categories_submit']))
     if(isset($_POST['name']) && isset($_POST['order']) && !empty($_POST['name']) && !empty($_POST['order']))
         $categories->add($_POST['name'],$_POST['order'],$checked);
 }
-
     // If there are a request to delete category
 if(isset($_GET['d']))
     $categories->delete($_GET['d']);

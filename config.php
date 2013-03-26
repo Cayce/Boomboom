@@ -40,8 +40,8 @@ else
     define('DBMS_NAME','mysql');
     define('DB_HOST'  ,'localhost');
     define('DB_PORT'  ,'3306');
-    define('DB_USER'  ,'user475_boomboom');
+    define('DB_USER'  ,'root');
     define('DB_PASS'  ,$passwords[1]);
-    define('DB_DATABASENAME','user475_Boomboom');
-    define('DB_DATABASENAME_LOG','user475_log');
+    define('DB_DATABASENAME','Boomboom');
+    define('DB_DATABASENAME_LOG','log');
 }
