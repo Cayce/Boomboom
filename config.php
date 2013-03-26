@@ -12,6 +12,10 @@ define('PR_DOMAIN','Boomboom.co.il');
      */
 define('PR_MODE',1);
 
+
+
+
+
     /*
      * Meanwhile turning off search by categories,
      * because all the job ads are from parsed websites,
