@@ -51,6 +51,14 @@ var count_jobs = <?php echo $jobs->jobs_count; ?>
 
                 echo '</ul></div>';
                 
+                ?>
+                
+    <div class="well" align="right">
+        <ul class="nav nav-list">
+        <li><a><label class="checkbox"><input <?php if($_SESSION['show_hidden_ads']==true) echo 'checked="checked"'; ?> type="checkbox" name="show_hidden_ads" value="1"> <span style="color: #008080;">להראות הודעות בלי אפשרות ישירה ליצור קשר עם המפרסם</span></label></a></li>
+        </ul>
+    </div>
+                <?php
             
                     // ### LIST OF CATEGORIES ###
                if(MOD_CATEGORIES_ON)
@@ -77,8 +85,8 @@ var count_jobs = <?php echo $jobs->jobs_count; ?>
                {
                    
                        // From first hiden website, hide the websites in spoiler 
-                   if($i==$jobs->list_of_websites['first_hiden_website'])
-                   {
+                   // if($i==$jobs->list_of_websites['first_hiden_website']) In new version showing all the websites
+                   /* {
                        ?>
                     
                     <div class="accordion-heading" align="right">
@@ -93,7 +101,7 @@ var count_jobs = <?php echo $jobs->jobs_count; ?>
                         <br />
                     
                        <?php
-                   }
+                    } */
                    
                    if($jobs->list_of_websites[$i]['checked']==1) $checked = ' checked="checked"';
                    else                                          $checked = '';
@@ -105,8 +113,8 @@ var count_jobs = <?php echo $jobs->jobs_count; ?>
                }
             
                     // If there are hiden websites, we have one more div to close
-                if($jobs->list_of_websites['first_hiden_website']!=-1)
-                    echo '</div>';
+                //if($jobs->list_of_websites['first_hiden_website']!=-1)
+                   // echo '</div>';
                
                 echo '</ul></div>';
                 ?>

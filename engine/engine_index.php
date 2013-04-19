@@ -25,6 +25,12 @@ if(isset($_POST['update_checkboxes']))
     
     if(!empty($_POST['categories'])) $jobs->update_categories_checkboxes($_POST['categories']);
     else                             $_SESSION['categories'] = $jobs->create_categories_checkboxes();
+    
+        // If show_hidden_ads = true, script will show all the ads, else script will show only ads with email and phone contact
+    if(isset($_POST['show_hidden_ads']))
+        $_SESSION['show_hidden_ads'] = true;
+    else
+        $_SESSION['show_hidden_ads'] = false;
 }
 
     // Creates list of websites checks if doesnt exist
@@ -38,6 +44,9 @@ if(!isset($_SESSION['job_types']))
     // Creates list of job-categories checks if doesnt exist
 if(!isset($_SESSION['categories']))
     $_SESSION['categories'] = $jobs->create_categories_checkboxes();
+
+if(!isset($_SESSION['show_hidden_ads']))
+    $_SESSION['show_hidden_ads'] = false;
 
     // Those functions will make an array with all the job types categories and websites
 $jobs->get_categories();

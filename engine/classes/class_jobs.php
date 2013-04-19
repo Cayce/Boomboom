@@ -133,21 +133,29 @@ class jobs
             
             $this->get_categories();
         }
+        
+            // If show_hidden_ads = true, script will show all the ads, else script will show only ads with email and phone contact
+        if($_SESSION['show_hidden_ads']==true)
+            $condition_show_hidden_ads = "`id_job` != 0";
+        else
+            $condition_show_hidden_ads = "`contact_email`!='' AND `contact_phone`!=''";
 
             // Geting data of the jobs
-        $query = db::query("SELECT * FROM `jobs` WHERE  $condition_id_websites AND $condition_categories AND $condition_job_types AND `show`=1 ORDER BY `date` DESC, `id_job` DESC LIMIT $skip,$limit");
+        $query = db::query("SELECT * FROM `jobs` WHERE  $condition_id_websites AND $condition_categories AND $condition_job_types AND $condition_show_hidden_ads AND `show`=1 ORDER BY `date` DESC, `id_job` DESC LIMIT $skip,$limit");
         for($i=$skip; $r = $query->fetch(); $i++)
         {
                 // Saving all the data in variables
             foreach($r as $key => $value)
                 $jobs[$i][$key] = $value;
             
-                // Delete all the tags in text, except <br> and <u>
-            $jobs[$i]['text'] = strip_tags($jobs[$i]['text'],'<br><p><u><b>');
+                // Transform bbcode to tags
+            $bbcode = array('[br]','[p]','[u]','[b]','[/p]','[/u]','[/b]');
+            $tags   = array('<br />','<p>','<u>','<b>','</p>','</u>','</b>',);
+            $jobs[$i]['text'] = $this->close_html_tags(str_replace($bbcode,$tags,$jobs[$i]['text']));
             
                 // Creating minimized text
             if(mb_strlen($jobs[$i]['text'],'utf-8')>520)
-                $jobs[$i]['text_min'] = strip_tags(mb_substr($jobs[$i]['text'],0,500,'utf-8'),'<br><p><u><b>').'...';
+                $jobs[$i]['text_min'] = $this->close_html_tags(mb_substr($jobs[$i]['text'],0,500,'utf-8')).'...';
             
                 // Getting the types
             $query4 = db::query("SELECT `name` FROM `job_types` WHERE `id_job_type` IN(SELECT `id_job_type` FROM `jobs_job_types` WHERE `id_job`=".$r['id_job'].")");
@@ -425,6 +433,24 @@ class jobs
             elseif($checked[$key][0]==1)
                 $_SESSION['categories'][$key] = 1;
         }
+    }
+    
+    /** Closing html tags int $text: <p><u><b>
+     * 
+     * @param string $text
+     */
+    public function close_html_tags($text)
+    {
+        while(mb_substr_count($text,'<u>')>mb_substr_count($text,'</u>'))
+            $text = $text.'</u>';
+        
+        while(mb_substr_count($text,'<b>')>mb_substr_count($text,'</b>'))
+            $text = $text.'</b>';
+        
+        while(mb_substr_count($text,'<p>')>mb_substr_count($text,'</p>'))
+            $text = $text.'</p>';
+        
+        return $text;
     }
 
 }
