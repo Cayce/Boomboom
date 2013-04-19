@@ -67,7 +67,7 @@ class jobs
         db::query("UPDATE `jobs` SET `show`=0 WHERE `id_job`=$id_job");
     }
     
-    /** Deletet the job
+    /** Delete the job
      *
      * @param type $id_job 
      */
@@ -182,12 +182,14 @@ class jobs
             foreach($r as $key => $value)
                 $jobs[$i][$key] = $value;
             
-                // Delete all the tags in text, except <br> and <u>
-            $jobs[$i]['text'] = strip_tags($jobs[$i]['text'],'<br><u>');
+                // Transform bbcode to tags
+            $bbcode = array('[br]','[p]','[u]','[b]','[/p]','[/u]','[/b]');
+            $tags   = array('<br />','<p>','<u>','<b>','</p>','</u>','</b>',);
+            $jobs[$i]['text'] = $this->close_html_tags(str_replace($bbcode,$tags,$jobs[$i]['text']));
             
                 // Creating minimized text
             if(mb_strlen($jobs[$i]['text'],'utf-8')>510)
-                $jobs[$i]['text_min'] = strip_tags(mb_substr($jobs[$i]['text'],0,500,'utf-8'),'<br><u>').'...';
+                $jobs[$i]['text_min'] = $this->close_html_tags(mb_substr($jobs[$i]['text'],0,500,'utf-8')).'...';
             
                 // Getting the types
             $query4 = db::query("SELECT `name` FROM `job_types` WHERE `id_job_type` IN(SELECT `id_job_type` FROM `jobs_job_types` WHERE `id_job`=".$r['id_job'].")");
@@ -443,6 +445,24 @@ class jobs
             elseif($checked[$key][0]==1)
                 $_SESSION['categories_admin'][$key] = 1;
         }
+    }
+    
+    /** Closing html tags int $text: <p><u><b>
+     * 
+     * @param string $text
+     */
+    public function close_html_tags($text)
+    {
+        while(mb_substr_count($text,'<u>')>mb_substr_count($text,'</u>'))
+            $text = $text.'</u>';
+        
+        while(mb_substr_count($text,'<b>')>mb_substr_count($text,'</b>'))
+            $text = $text.'</b>';
+        
+        while(mb_substr_count($text,'<p>')>mb_substr_count($text,'</p>'))
+            $text = $text.'</p>';
+        
+        return $text;
     }
 
 }

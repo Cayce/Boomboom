@@ -70,7 +70,7 @@ for($i=$skip;$i<$jobs->jobs_count+$skip;$i++)
         <?php
             if(MOD_CATEGORIES_ON) echo'<b>קטגוריות: </b>',$jobs->jobs[$i]['categories'],$jobs->jobs[$i]['budget'],'<br /><br />';
             
-            echo $jobs->jobs[$i]['text_min'];
+            echo e($jobs->jobs[$i]['text_min']);
         ?>
     </p>
     </div>
@@ -81,7 +81,7 @@ for($i=$skip;$i<$jobs->jobs_count+$skip;$i++)
     <p>
         <?php if(MOD_CATEGORIES_ON) echo'<b>קטגוריות: </b>',$jobs->jobs[$i]['categories'],$jobs->jobs[$i]['budget'],'<br /><br />';
         
-              echo $jobs->jobs[$i]['text']; ?>
+              echo e($jobs->jobs[$i]['text']); ?>
     </p>
     </div>
     <?php
