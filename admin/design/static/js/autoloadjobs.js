@@ -50,7 +50,7 @@ function getXmlHttp()
 function getnextjobs()
 {
     var req = getXmlHttp();
-    var url = 'load_jobs?skip=' + count_jobs;
+    var url = 'load_jobs?skip=' + count_jobs + 'parser_id=' + parser_id;
     count_jobs +=5;
 
     req.open('GET', url, true);

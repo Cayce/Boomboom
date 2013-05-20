@@ -6,6 +6,8 @@
 
 class jobs
 {
+        // Id of the parser that get the job
+    public $parser_id;
     
     /** List of websites to show in a search form.
      * 
@@ -83,13 +85,15 @@ class jobs
      *
      * @param integer $limit - how many jobs to get
      * @param integer $skip  - how many jobs to skip
+     * @param integer $parser_id  - id of the parser that get this job
      */
-    public function get_jobs($limit,$skip=0)
+    public function get_jobs($limit,$skip=0,$parser_id=0)
     {
         db::connect();
 
         $jobs = array();
         $limit = intval($limit);
+        $this->parser_id = $parser_id = intval($parser_id);
         
             // Making website condition for query
         for($i=0;$i<$this->list_of_websites_count;$i++)
@@ -166,6 +170,11 @@ class jobs
             $this->get_categories();
         }
         
+        if($parser_id>0)
+            $condition_parser_id = '`parser_id` = '.$parser_id;
+        else
+            $condition_parser_id = '`id_job` != 0';
+                
             // Making show condition for query
         if($_SESSION['show'] == 0)
             $condition_show = '`show` != -1';
@@ -175,7 +184,7 @@ class jobs
             $condition_show = '`show` = 0';
 
             // Geting data of the jobs
-        $query = db::query("SELECT * FROM `jobs` WHERE  $condition_id_websites AND $condition_categories AND $condition_job_types AND $condition_show ORDER BY `date` DESC, `id_job` DESC LIMIT $skip,$limit");
+        $query = db::query("SELECT * FROM `jobs` WHERE  $condition_id_websites AND $condition_categories AND $condition_job_types AND $condition_show AND $condition_parser_id ORDER BY `date` DESC, `id_job` DESC LIMIT $skip,$limit");
         for($i=$skip; $r = $query->fetch(); $i++)
         {
                 // Saving all the data in variables

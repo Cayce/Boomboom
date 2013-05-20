@@ -42,6 +42,7 @@
                 
                 
                 <li class="<?php if($require_page=='change_password') echo 'active'; ?>"><a href="ChangePassword">Change Password</a></li>
+                <li class="<?php if($require_page=='parser') echo 'active'; ?>"><a href="Parser">Parser</a></li>
                 <li><a href="Exit">Exit<i class="icon-off"></i></a></li>
             <?php } ?>
             </ul>

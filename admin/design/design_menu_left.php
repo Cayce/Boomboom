@@ -12,6 +12,9 @@
         
         <li class="divider"></li>
         <li class="<?php if($require_page=='change_password') echo 'active'; ?>"><a href="ChangePassword">Change Password</a></li>
+        <li class="divider"></li>
+        <li class="<?php if($require_page=='parser') echo 'active'; ?>"><a href="Parser">Parser</a></li>
+        <li class="divider"></li>
         <li class=""><a href="Exit">Exit</a></li>
     </ul>
 </div>

@@ -22,6 +22,9 @@ $jobs->get_categories();
     // How many jobs to skip
 $skip = isset($_GET['skip'])?intval($_GET['skip']):0;
 
-$jobs->get_jobs(5,$skip);
+    // In which parser to search
+$parser_id = isset($_GET['parser_id'])?intval($_GET['parser_id']):0;
+
+$jobs->get_jobs(5,$skip,$parser_id);
 
 require 'design/design_load_jobs.php'; 

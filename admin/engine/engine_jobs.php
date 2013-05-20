@@ -26,6 +26,7 @@ elseif(isset($_POST['hide']) && isset($_POST['id_job']))
 $_POST['websites']   = isset($_POST['websites'])?$_POST['websites']:array();
 $_POST['categories'] = isset($_POST['categories'])?$_POST['categories']:array();
 $_POST['job_types']  = isset($_POST['job_types'])?$_POST['job_types']:array();
+$_POST['parser_id']  = isset($_POST['parser_id'])?$_POST['parser_id']:0;
 
 
     // If admin updated the search form
@@ -72,6 +73,6 @@ $jobs->get_websites();
     
 
     // Gets 10 jobs
-$jobs->get_jobs(10,0);
+$jobs->get_jobs(10,0,$_POST['parser_id']);
 
 require 'design/design_jobs.php';

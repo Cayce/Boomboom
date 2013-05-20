@@ -25,6 +25,7 @@ require 'design_menu_left.php';
 
 <script>
 var count_jobs = <?php echo $jobs->jobs_count; ?>
+var parser_id = <?php echo $jobs->parser_id; ?>
 </script>
 
     <div class="span2">
@@ -91,6 +92,11 @@ var count_jobs = <?php echo $jobs->jobs_count; ?>
         <li><a><label class="checkbox"><input <?php if($_SESSION['show']!=1) echo 'checked="checked"'; ?> type="checkbox" name="hidden" value="1"> <span style="color: #008080;">Hidden</span></label></a></li>
         <li><a><label class="checkbox"><input <?php if($_SESSION['show']==0 || $_SESSION['show']==1) echo 'checked="checked"'; ?> type="checkbox" name="not_hidden" value="1"> <span style="color: #008080;">Not hidden</span></label></a></li>
         </ul>
+    </div>
+            
+    <div class="well" align="left">
+        Parser id:
+        <input type="text" name="parser_id" value="<?php echo $jobs->parser_id; ?>" />
     </div>
             
     <div class="well" align="center">
