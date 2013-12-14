@@ -199,7 +199,68 @@ class jobs
         $this->jobs       = $jobs;
         $this->jobs_count = count($jobs);
     }
-    
+
+    public function get_jobs_selection(array $sites, array $categories, array $types, $sinceId = 0, DateTime $sinceDate = null, $limit = null, $start = 0)
+    {
+        $conditions = array();
+        $categoriesCondition = '';
+        $typesCondition = '';
+        $limitCondition = '';
+
+        if(!empty($sites))
+            $conditions[] = 'website_id IN ('.join(',', $sites).')';
+
+        if(!empty($categories))
+            $categoriesCondition = ' AND jobs_categories.id_category IN ('.join(',', $categories).')';
+
+        if(!empty($types))
+            $typesCondition = ' AND jobs_job_types.id_job_type IN ('.join(',', $types).')';
+
+        if($sinceId !== null && $sinceId > 0)
+            $conditions[] = 'jobs.id_job > '.$sinceId;
+
+        if(null !== $sinceDate)
+            $conditions[] = "date > '".$sinceDate->format('Y-m-d h:i:s')."'";
+
+
+        $conditions[] = 'jobs.show = 1';
+        $conditions = !empty($conditions) ? 'WHERE '. join(' AND ', $conditions) : '';
+
+
+        if(null !== $limit)
+        {
+            $limitCondition = 'LIMIT ';
+
+            if($start > 0)
+                $limitCondition .= $start .', ';
+
+            $limitCondition .= $limit;
+        }
+
+        $query =
+            "SELECT jobs.*, jobs_categories.id_category, jobs_job_types.id_job_type,
+                    categories.name as 'category',
+                    job_types.name as 'type',
+                    websites.name as 'website',
+                    UNIX_TIMESTAMP(jobs.date) as 'job_date_timestamp'
+            FROM jobs
+            INNER JOIN jobs_categories ON jobs_categories.id_job = jobs.id_job $categoriesCondition
+            INNER JOIN jobs_job_types ON jobs_job_types.id_job = jobs.id_job $typesCondition
+            INNER JOIN categories ON jobs_categories.id_category = categories.id_category
+            INNER JOIN job_types ON job_types.id_job_type = jobs_job_types.id_job_type
+            INNER JOIN websites ON websites.id_website = jobs.website_id
+            $conditions
+            ORDER BY jobs.date DESC, jobs.id_job DESC
+            $limitCondition";
+
+        //echo $query;
+
+        /*** @var $resultSet \PDOStatement */
+        $resultSet = db::query($query);
+
+        return $resultSet->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
     /** This function fill the $this->list_of_websites variable
      * 
      * 'id_website' and 'name' it takes from the database
@@ -434,10 +495,11 @@ class jobs
                 $_SESSION['categories'][$key] = 1;
         }
     }
-    
+
     /** Closing html tags int $text: <p><u><b>
-     * 
+     *
      * @param string $text
+     * @return string
      */
     public function close_html_tags($text)
     {
