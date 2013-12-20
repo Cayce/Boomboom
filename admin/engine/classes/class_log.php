@@ -46,7 +46,7 @@ class log
             else
             {
                 $dbh->query("INSERT INTO `".DB_DATABASENAME_LOG."`.`log`(`project`,`file`,`type`,`message`,`data`,`date`) VALUES(".$dbh->quote(PR_NAME).", $file,$type,$message,$data,NOW())");
-                $id = $dbh->lastInsertId();
+                $id_record = $dbh->lastInsertId();
             }
 
                 // If project in live mode, not printing error, but only it id
@@ -96,7 +96,7 @@ class log
             else
             {
                 $query = $dbh->query("INSERT INTO `".DB_DATABASENAME_LOG."`.`log`(`project`,`file`,`type`,`message`,`data`,`date`) VALUES(".$dbh->quote(PR_NAME).", $file,$type,$message,$data,NOW())");
-                $id = $dbh->lastInsertId();
+                $id_record = $dbh->lastInsertId();
             }
 
                 // If project in live mode, not printing error, but only it id

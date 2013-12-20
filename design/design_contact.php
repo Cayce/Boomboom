@@ -22,7 +22,7 @@ require 'design_header.php';
         <form method="POST" class="form-horizontal">
         <fieldset>
         <legend>שלח אלי מכתב</legend><br />
-        <?php
+        <?php /*
         if($contact->success)
             echo '<span class="label label-success">המכתב נשלח בהצלחה</span><br /><br />';
         ?>
@@ -60,7 +60,7 @@ require 'design_header.php';
         </table>
         </fieldset>
         </form>
-        <legend>או צור איתי קשר בדרך אחרת</legend>
+        <legend>או צור איתי קשר בדרך אחרת</legend> */ ?>
         
         דואר אלקטרוני - Cayce245@gmail.com
     </div>

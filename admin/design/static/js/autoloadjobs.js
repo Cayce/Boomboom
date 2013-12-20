@@ -13,7 +13,10 @@ function autoloadjobs()
 {
 
     if(howMuchScroll() + window.innerHeight >= document.documentElement.scrollHeight)
+        {
+            
         getnextjobs();
+        }
 }
 
 
@@ -49,8 +52,9 @@ function getXmlHttp()
 
 function getnextjobs()
 {
+    
     var req = getXmlHttp();
-    var url = 'load_jobs?skip=' + count_jobs + 'parser_id=' + parser_id;
+    var url = 'index.php?require_page=load_jobs&skip=' + count_jobs + '&parser_id=' + parser_id;
     count_jobs +=5;
 
     req.open('GET', url, true);

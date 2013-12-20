@@ -138,7 +138,7 @@ class jobs
         if($_SESSION['show_hidden_ads']==true)
             $condition_show_hidden_ads = "`id_job` != 0";
         else
-            $condition_show_hidden_ads = "`contact_email`!='' AND `contact_phone`!=''";
+            $condition_show_hidden_ads = "(`contact_email`!='' OR `contact_phone`!='')";
 
             // Geting data of the jobs
         $query = db::query("SELECT * FROM `jobs` WHERE  $condition_id_websites AND $condition_categories AND $condition_job_types AND $condition_show_hidden_ads AND `show`=1 ORDER BY `date` DESC, `id_job` DESC LIMIT $skip,$limit");

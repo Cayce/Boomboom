@@ -13,6 +13,20 @@ $_POST['websites']   = isset($_POST['websites'])?$_POST['websites']:array();
 $_POST['categories'] = isset($_POST['categories'])?$_POST['categories']:array();
 $_POST['job_types']  = isset($_POST['job_types'])?$_POST['job_types']:array();
 
+    // Creates list of websites checks if doesnt exist
+if(!isset($_SESSION['websites']))
+    $_SESSION['websites'] = $jobs->create_website_checkboxes();
+
+    // Creates list of job types checks if doesnt exist
+if(!isset($_SESSION['job_types']))
+    $_SESSION['job_types'] = $jobs->create_job_types_checkboxes();
+
+    // Creates list of job-categories checks if doesnt exist
+if(!isset($_SESSION['categories']))
+    $_SESSION['categories'] = $jobs->create_categories_checkboxes();
+
+if(!isset($_SESSION['show_hidden_ads']))
+    $_SESSION['show_hidden_ads'] = true;
 
     // If user updated the search form
 if(isset($_POST['update_checkboxes']))
@@ -32,21 +46,6 @@ if(isset($_POST['update_checkboxes']))
     else
         $_SESSION['show_hidden_ads'] = false;
 }
-
-    // Creates list of websites checks if doesnt exist
-if(!isset($_SESSION['websites']))
-    $_SESSION['websites'] = $jobs->create_website_checkboxes();
-
-    // Creates list of job types checks if doesnt exist
-if(!isset($_SESSION['job_types']))
-    $_SESSION['job_types'] = $jobs->create_job_types_checkboxes();
-
-    // Creates list of job-categories checks if doesnt exist
-if(!isset($_SESSION['categories']))
-    $_SESSION['categories'] = $jobs->create_categories_checkboxes();
-
-if(!isset($_SESSION['show_hidden_ads']))
-    $_SESSION['show_hidden_ads'] = false;
 
     // Those functions will make an array with all the job types categories and websites
 $jobs->get_categories();

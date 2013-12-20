@@ -27,9 +27,6 @@ require 'engine/classes/class_jobs.php';
 $jobs = new jobs();
 $jobs->get_websites();
 
-    // All jobs that parsed
-$jobs_parsed = array();
-
 if(isset($_POST['parse_submit']))
 {  
     set_time_limit(0);

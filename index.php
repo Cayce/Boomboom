@@ -16,7 +16,7 @@
 
     // First of all, checking that script run in our universe.
 if(2+2!==4)
-    die('Configurations of your universe doesn\'t support this script :(<br> Please contact your universe administrator(aka God).');
+    die('Configurations of your universe doesn\'t support this script :(<br /> Please contact God.');
 
 require 'config.php';
 require 'engine/classes/class_log.php';

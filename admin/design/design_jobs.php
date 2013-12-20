@@ -24,7 +24,7 @@ require 'design_menu_left.php';
 ?>
 
 <script>
-var count_jobs = <?php echo $jobs->jobs_count; ?>
+var count_jobs = <?php echo $jobs->jobs_count; ?> 
 var parser_id = <?php echo $jobs->parser_id; ?>
 </script>
 
