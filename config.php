@@ -25,7 +25,9 @@ $passwords[0] = isset($passwords[0])?trim($passwords[0]):'';
 $passwords[1] = isset($passwords[1])?trim($passwords[1]):''; 
 
     // Database connection data for localhost, and not a local host.
-if($_SERVER['SERVER_ADDR'] == '127.0.0.1')
+$localServers = array('127.0.0.1', '::1', '33.33.33.100');
+
+if(in_array($_SERVER['REMOTE_ADDR'], $localServers, true))
 {
     define('DBMS_NAME','mysql');          // Database management system name
     define('DB_HOST'  ,'localhost');      // If the server is on the same ip as mysql(or other dbms), the host is localhost

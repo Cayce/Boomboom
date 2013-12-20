@@ -41,8 +41,10 @@ $search  = array('index','Up','Co','load_jobs','404');
 $replace = array('index','upload','contact','load_jobs','index');
 $require_page = str_replace($search, $replace, $require_page, $count);
 
+$allowedActions = array('index', 'upload', 'contact', 'load_jobs', 'apiv1');
+
     // If there are required page, getting it.
-if($count > 0 && ($require_page==='index' || $require_page==='upload' || $require_page==='contact' || $require_page==='load_jobs'))
+if(in_array($require_page, $allowedActions, true))
     require 'engine/engine_'.$require_page.'.php';
 
     // Else sending user to 404 page, assuming he required a not existing page
